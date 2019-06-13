@@ -6,8 +6,8 @@ public class BandMatrix {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (i - width <= j && j <= i + width)
-                    System.out.print("*\t");
-                else System.out.print("0\t");
+                    System.out.print("*  ");
+                else System.out.print("0  ");
             }
             System.out.println();
         }
