@@ -27,6 +27,18 @@ public class Minesweeper {
     }
 
     private static int[][] changeA(int[][] a) {
+        int M = a.length;
+        int N = a[0].length;
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++) {
+                if (a[i][j] == -1) {
+                    if (1 <= j && a[i][j - 1] != -1) a[i][j - 1] += 1;
+                    if (j <= N - 2 && a[i][j + 1] != -1) a[i][j + 1] += 1;
+                    if (1 <= i && a[i - 1][j] != -1) a[i - 1][j] += 1;
+                    if (i <= M - 2 && a[i + 1][j] != -1) a[i + 1][j] += 1;
+                }
+            }
+        }
         return a;
     }
 
