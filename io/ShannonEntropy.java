@@ -16,7 +16,7 @@ public class ShannonEntropy {
         double shannon = 0.0;
         for (int j = 1; j <= m; j++) {
             double pi = 1.0 * a[j]/len;
-            StdOut.println("a[j] "+a[j]+" pi "+pi);
+//            StdOut.println("a[j] "+a[j]+" pi "+pi);
             if (pi != 0) shannon -= pi * (Math.log(pi)/Math.log(2));
         }
 

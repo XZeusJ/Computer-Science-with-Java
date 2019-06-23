@@ -1,6 +1,7 @@
 */*
 !*.java
+!*.txt
+
 *.class
 *.rar
 *.jar
-*.txt
