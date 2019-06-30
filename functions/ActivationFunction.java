@@ -7,8 +7,9 @@
 public class ActivationFunction {
     // Returns the Heaviside function of x.
     public static double heaviside(double x) {
+        if (Double.isNaN(x)) return Double.NaN;
         if (x < 0) return 0;
-        else if (x == 0) return 1 / 2;
+        else if (x == 0) return 1.0 / 2;
         else return 1;
     }
 
@@ -19,6 +20,10 @@ public class ActivationFunction {
 
     // Returns the hyperbolic tangent of x.
     public static double tanh(double x) {
+        if (x == Double.POSITIVE_INFINITY) return 1.0;
+        if (x == Double.NEGATIVE_INFINITY) return -1.0;
+        if (x == Double.MAX_VALUE) return 1.0;
+        if (x == -Double.MAX_VALUE) return -1.0;
         double posEX = Math.pow(Math.E, x);
         double negEX = Math.pow(Math.E, -x);
         return (posEX - negEX) / (posEX + negEX);
@@ -26,12 +31,16 @@ public class ActivationFunction {
 
     // Returns the softsign function of x.
     public static double softsign(double x) {
+        if (x == Double.POSITIVE_INFINITY) return 1.0;
+        if (x == Double.NEGATIVE_INFINITY) return -1.0;
         if (x > 0) return x / (1 + x);
         else return x / (1 - x);
     }
 
     // Returns the square nonlinearity function of x.
     public static double sqnl(double x) {
+        if (x == Double.NEGATIVE_INFINITY) return -1.0;
+        if (x == Double.NaN) return Double.NaN;
         if (x <= -2) return -1;
         else if (x < 0) return x + Math.pow(x, 2) / 4;
         else if (x < 2) return x - Math.pow(x, 2) / 4;
