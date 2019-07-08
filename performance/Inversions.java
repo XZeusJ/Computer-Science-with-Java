@@ -10,7 +10,7 @@ public class Inversions {
     // Return the number of inversions in the permutation a[].
     public static long count(int[] a) {
         int len = a.length;
-        int count = 0;
+        long count = 0;
         for (int i = 0; i < len; i++) {
             for (int j = i + 1; j < len; j++) {
                 if (a[i] > a[j]) count++;

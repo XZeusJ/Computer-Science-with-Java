@@ -19,12 +19,10 @@ public class Ramanujan {
             while (lo <= hi) {
                 long mid = lo + (hi - lo) / 2;
                 long mid3 = mid * mid * mid;
+                // StdOut.println("a3+mid3 n -> " + (a3 + mid3) + " " + n);
+                // StdOut.println("lo mid hi -> " + lo + " " + mid + " " + hi);
                 if (a3 + mid3 < n) lo = mid + 1;
-                else if (a3 + mid3 > n) {
-                    // StdOut.println("a3+mid3 n -> " + (a3 + mid3) + " " + n);
-                    hi = mid - 1;
-                    // StdOut.println("lo mid hi -> " + lo + " " + mid + " " + hi);
-                }
+                else if (a3 + mid3 > n) hi = mid - 1;
                 else {
                     // StdOut.println("is equal");
                     count++;
@@ -34,7 +32,7 @@ public class Ramanujan {
             // StdOut.println();
         }
         // StdOut.println(count);
-        return count == 2;
+        return count >= 2;
     }
 
     // Takes a long integer command-line arguments n and prints true if
@@ -42,7 +40,8 @@ public class Ramanujan {
     public static void main(String[] args) {
         long n = Long.parseLong(args[0]);
         // long n = 1729;
-        // StdOut.println(isRamanujan(n));
+        // long n = 6963472309248L;
+        StdOut.println(isRamanujan(n));
         // n = 3458;
         // StdOut.println(isRamanujan(n));
         // n = 4104;
